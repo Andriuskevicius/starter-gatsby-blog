@@ -10,18 +10,18 @@ import readingTime from 'reading-time'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
-import Tags from '../components/tags'
+//import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    const post = get(this.props, 'data.contentfulArticles')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
     const plainTextDescription = documentToPlainTextString(
-      JSON.parse(post.description.raw)
+      post.description.description
     )
-    const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw))
+    const plainTextBody = documentToPlainTextString(post.body.raw)
     const { minutes: timeToRead } = readingTime(plainTextBody)
     
     const options = {
@@ -52,15 +52,13 @@ class BlogPostTemplate extends React.Component {
         />
         <div className={styles.container}>
           <span className={styles.meta}>
-            {post.author?.name} &middot;{' '}
             <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
             {timeToRead} minute read
           </span>
           <div className={styles.article}>
             <div className={styles.body}>
-              {post.body?.raw && renderRichText(post.body, options)}
+              { renderRichText(post.body, options)}
             </div>
-            <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
@@ -96,12 +94,9 @@ export const pageQuery = graphql`
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+    contentfulArticles(slug: { eq: $slug }) {
       slug
       title
-      author {
-        name
-      }
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
       heroImage {
@@ -112,18 +107,16 @@ export const pageQuery = graphql`
       }
       body {
         raw
-        
       }
-      tags
       description {
-        raw
+        description 
       }
     }
-    previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
+    previous: contentfulArticles(slug: { eq: $previousPostSlug }) {
       slug
       title
     }
-    next: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
+    next: contentfulArticles(slug: { eq: $nextPostSlug }) {
       slug
       title
     }
