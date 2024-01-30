@@ -20,6 +20,19 @@
   flex-direction: row;
 }
 
+.logoTextWrap {
+  display: inline-flex;
+  align-items: baseline;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.navigationLogo {
+  font-family: 'Chivo';
+  font-weight: 900;
+  font-size: 30px;
+}
+
 .navigationItem a {
   border-bottom: 1.5px solid transparent;
   color: currentColor;
