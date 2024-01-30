@@ -24,9 +24,9 @@ const ArticlePreview = ({ posts }) => {
               <div>
                 {post.description?.raw && renderRichText(post.description)}
               </div>
-              <div className={styles.meta}>
+              {/* <div className={styles.meta}>
                 <small className="meta">{post.publishDate}</small>
-              </div>
+              </div> */}
             </li>
           )
         })}
