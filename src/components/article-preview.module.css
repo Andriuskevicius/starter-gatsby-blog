@@ -10,9 +10,23 @@
 .title {
   display: inline-block;
   font-size: var(--text-lg);
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
   border-bottom: 1.5px solid transparent;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.category {
+  margin-top: var(--space-xl);
+  background-color: var(--black);
+  color: var(--white);
+  padding: 6px 10px 5px;
+  font-family: 'Raleway';
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  width: fit-content;
 }
 
 .link {

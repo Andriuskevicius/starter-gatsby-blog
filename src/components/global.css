@@ -1,20 +1,36 @@
 @font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
+  font-family: 'Chivo';
+  font-weight: 400 700 900;
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
+  src: url('/fonts/chivo-900.woff2?v=3.19') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400 700 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/roboto-900.woff2?v=3.19') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto-slab';
+  font-weight: 400 700 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/roboto-slab.woff2?v=3.19') format('woff2');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-weight: 700 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/raleway-700.woff2?v=3.19') format('woff2');
 }
 
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: url('/fonts/Inter-italic.var.woff2?v=3.19') format('woff2');
-}
 
 html {
   scroll-behavior: smooth;

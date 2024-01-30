@@ -18,6 +18,7 @@ const ArticlePreview = ({ posts }) => {
             <li key={post.slug}>
               <Link to={`/blog/${post.slug}`} className={styles.link}>
                 <GatsbyImage alt="" image={post.heroImage.gatsbyImage} />
+                <span className={styles.category}>Market</span>
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>
