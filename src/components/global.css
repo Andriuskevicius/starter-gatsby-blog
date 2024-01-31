@@ -77,7 +77,8 @@ a:hover {
 }
 
 a.active {
-  font-weight: var(--bold);
+  color: #fff !important;
+  background-color: #000 !important;
 }
 
 tt,

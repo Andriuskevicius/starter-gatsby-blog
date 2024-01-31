@@ -21,10 +21,11 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulArticles(sort: { publishDate: DESC }) {
+    allContentfulArticles(sort: { publishDate: DESC }, limit: 8) {
       nodes {
         title
         slug
+        category
         publishDate(formatString: "MMMM Do, YYYY")
         heroImage {
           gatsbyImage(

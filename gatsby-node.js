@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nodes {
             title
             slug
+            category
           }
         }
       }

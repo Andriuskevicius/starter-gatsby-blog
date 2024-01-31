@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "CYBER Scalps - dienos technologijų dozė",
+    description: "Nuskalpuotos naujienos jums, tiesiai nuo šviežių kibernetinių galvų",
   },
   plugins: [
     "gatsby-transformer-sharp",
