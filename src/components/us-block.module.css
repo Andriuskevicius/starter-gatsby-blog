@@ -1,0 +1,39 @@
+.containerWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  h2 {
+    font-family: Chivo;
+    font-size: 54px;
+    line-height: 1;
+    font-weight: 900;
+    margin: 10px 0;
+  }
+  h3 {
+    color: #aaaaaa;
+    font-family: 'Raleway';
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+  p {
+    color: #333333;
+    font-family: Raleway;
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+}
+.categories {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}

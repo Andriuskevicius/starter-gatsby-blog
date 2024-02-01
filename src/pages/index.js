@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import ArticlesHot from '../components/articles-hot'
 import ArticleCategory from '../components/article-category'
+import UsBlock from '../components/us-block'
 
 class RootIndex extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class RootIndex extends React.Component {
         <ArticlePreview posts={posts} />
         <ArticlesHot posts={posts} />
         <ArticleCategory posts={posts} />
+        <UsBlock />
       </Layout>
     )
   }
