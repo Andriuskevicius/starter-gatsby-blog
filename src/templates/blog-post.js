@@ -21,9 +21,7 @@ class BlogPostTemplate extends React.Component {
     const plainTextDescription = documentToPlainTextString(
       post.description.description
     )
-    const plainTextBody = documentToPlainTextString(post.body.raw)
-    const { minutes: timeToRead } = readingTime(plainTextBody)
-    
+
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -35,8 +33,15 @@ class BlogPostTemplate extends React.Component {
            />
          )
         },
+        [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
       },
+      renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
     };
+
+    const plainTextBody = renderRichText(post.body, options)
+    const { minutes: timeToRead } = readingTime(plainTextBody)
+
+    console.log(plainTextBody)
 
     return (
       <Layout location={this.props.location}>
@@ -57,7 +62,7 @@ class BlogPostTemplate extends React.Component {
           </span>
           <div className={styles.article}>
             <div className={styles.body}>
-              { renderRichText(post.body, options)}
+              { plainTextBody }
             </div>
             {(previous || next) && (
               <nav>

@@ -20,7 +20,8 @@
 }
 
 .body {
-  max-width: 48rem;
+  max-width: 100%;
+  font-size: 18px;
 }
 
 .article a {
