@@ -25,7 +25,7 @@ const ArticlePreview = ({ posts }) => {
                       width: "60%",
                     }} />
                   <div className={styles.favoriteDescription}>
-                    <span className={styles.category}>{post.category}</span>
+                    <Link to={`/category/${post.category}`} className={styles.category}>{post.category}</Link>
                     <h2 className={styles.title}>{post.title}</h2>
                   </div>
                 </Link>
@@ -36,7 +36,7 @@ const ArticlePreview = ({ posts }) => {
               <li key={post.slug}>
                 <Link to={`/blog/${post.slug}`} className={styles.link}>
                   <GatsbyImage alt="" image={post.heroImage.gatsbyImage} />
-                  <span className={styles.category}>{post.category}</span>
+                  <Link to={`/category/${post.category.toLowerCase()}`} className={styles.category}>{post.category}</Link>
                   <h2 className={styles.title}>{post.title}</h2>
                 </Link>
                 <div>

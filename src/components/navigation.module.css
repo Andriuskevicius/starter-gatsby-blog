@@ -24,8 +24,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
   svg {
     width: 26px;
+    margin-bottom: 2px;
   }
   span {
     font-weight: 900;

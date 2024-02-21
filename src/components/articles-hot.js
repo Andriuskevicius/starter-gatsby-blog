@@ -30,7 +30,7 @@ const ArticlesHot = ({ posts }) => {
             )
         })}
       </ul>
-      <button className={styles.button}>Load More</button>
+      <button className={styles.button}>Rodyti daugiau</button>
     </Container>
   )
 }

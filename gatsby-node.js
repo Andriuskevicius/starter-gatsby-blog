@@ -6,6 +6,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Define a template for blog post
   const blogPost = path.resolve('./src/templates/blog-post.js')
 
+  const blogCategory = path.resolve('./src/templates/blog-category.js')
+
   const result = await graphql(
     `
       {
@@ -20,10 +22,34 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   )
 
+  const categoriesResult = await graphql(
+    `
+      {
+        allContentfulCategories {
+          nodes {
+            categoryTitle
+            categorySlug
+            childContentfulCategoriesDescriptionTextNode {
+              description
+            }
+          }
+        }
+      }
+    `
+  )
+
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
       result.errors
+    )
+    return
+  }
+
+  if (categoriesResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful categories`,
+      categories.errors
     )
     return
   }
@@ -47,6 +73,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug: post.slug,
           previousPostSlug,
           nextPostSlug,
+        },
+      })
+    })
+  }
+
+  const categories = categoriesResult.data.allContentfulCategories.nodes
+
+  if (categories.length > 0) {
+    categories.forEach((category) => {
+      createPage({
+        path: `/category/${category.categorySlug}/`,
+        component: blogCategory,
+        context: {
+          slug: category.categorySlug,
+          title: category.categoryTitle,
         },
       })
     })
